@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Editável</title>
+    <link rel="stylesheet" href="1202.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="titulo">Título do Site</h1>
+        <button onclick="editarTitulo()">Editar</button>
+
+        <div class="foto-container">
+            <img id="foto" src="placeholder.jpg" alt="Foto">
+            <button onclick="editarFoto()">Editar</button>
+        </div>
+
+        <div class="campo">
+            <label>Data de Nascimento: <span id="dataNascimento">____________</span></label>
+            <button onclick="editarDataNascimento()">Editar</button>
+        </div>
+
+        <div class="campo">
+            <label>Cidade: <span id="cidade">___________________</span></label>
+            <button onclick="editarCidade()">Editar</button>
+        </div>
+
+        <div class="campo">
+            <label>Passatempos:</label>
+            <button onclick="incluirPassatempo()">Incluir</button>
+            <button onclick="editarPassatempos()">Editar</button>
+            <ul id="passatempos">
+                <li>__________________________</li>
+                <li>__________________________</li>
+                <li>__________________________</li>
+            </ul>
+        </div>
+
+        <button id="enviar" onclick="verificarCampos()">Enviar</button>
+    </div>
+
+    <script src="12022025.js"></script>
+</body>
+</html>
