@@ -1,0 +1,135 @@
+function editarTitulo() {
+    const novoTexto = prompt("Editar título:");
+    if (novoTexto) {
+        document.getElementById("titulo").textContent = novoTexto;
+    }
+}
+
+function editarFoto() {
+    const novaFoto = prompt("Cole o URL da nova imagem:");
+    if (novaFoto) {
+        document.getElementById("foto").src = novaFoto;
+    }
+}
+
+function editarDataNascimento() {
+    const novaData = prompt("Editar data de nascimento:");
+    if (novaData) {
+        document.getElementById("dataNascimento").textContent = novaData;
+    }
+}
+
+function editarCidade() {
+    const novaCidade = prompt("Editar cidade:");
+    if (novaCidade) {
+        document.getElementById("cidade").textContent = novaCidade;
+    }
+}
+
+function incluirPassatempo() {
+    const novoPassatempo = prompt("Adicionar passatempo:");
+    if (novoPassatempo) {
+        const lista = document.getElementById("passatempos");
+   
+        const itens = lista.querySelectorAll("li");
+        let substituido = false;
+
+        itens.forEach(item => {
+            if (item.textContent === "__________________________" && !substituido) {
+                item.textContent = novoPassatempo;
+                substituido = true;
+            }
+        });
+
+        
+        if (!substituido) {
+            const novoItem = document.createElement("li");
+            novoItem.textContent = novoPassatempo;
+            lista.appendChild(novoItem);
+        }
+    }
+}
+
+function editarPassatempos() {
+    const passatempos = document.querySelectorAll("#passatempos li");
+    passatempos.forEach((item, index) => {
+        const novoTexto = prompt(`Editar passatempo ${index + 1}:`, item.textContent);
+        if (novoTexto) {
+            item.textContent = novoTexto;
+        }
+    });
+}
+
+function verificarCampos() {
+    const titulo = document.getElementById("titulo").textContent;
+    const dataNascimento = document.getElementById("dataNascimento").textContent;
+    const cidade = document.getElementById("cidade").textContent;
+    const passatempos = document.querySelectorAll("#passatempos li");
+
+    if (
+        titulo !== "Título do Site" &&
+        dataNascimento !== "____________" &&
+        cidade !== "___________________" &&
+        Array.from(passatempos).every(item => item.textContent !== "__________________________")
+    ) {
+        document.body.innerHTML = '<img src="https://via.placeholder.com/1920x1080" alt="Imagem de confirmação" style="width: 100%; height: 100vh; object-fit: cover;">';
+    } else {
+        alert("Preencha todos os campos obrigatórios!");
+    }
+}
+
+document.querySelectorAll("button").forEach(button => {
+    button.addEventListener("mouseover", () => {
+        button.style.backgroundColor = "#004080";
+    });
+
+    button.addEventListener("mouseout", () => {
+        button.style.backgroundColor = "#007bff";
+    });
+});
+function verificarCampos() {
+    const titulo = document.getElementById("titulo").textContent;
+    const dataNascimento = document.getElementById("dataNascimento").textContent;
+    const cidade = document.getElementById("cidade").textContent;
+    const passatempos = document.querySelectorAll("#passatempos li");
+
+    if (
+        titulo !== "Título do Site" &&
+        dataNascimento !== "____________" &&
+        cidade !== "___________________" &&
+        Array.from(passatempos).every(item => item.textContent !== "__________________________")
+    ) {
+       
+        const gifContainer = document.createElement("div");
+        gifContainer.style.position = "fixed";
+        gifContainer.style.top = "0";
+        gifContainer.style.left = "0";
+        gifContainer.style.width = "100%";
+        gifContainer.style.height = "100%";
+        gifContainer.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+        gifContainer.style.display = "flex";
+        gifContainer.style.justifyContent = "center";
+        gifContainer.style.alignItems = "center";
+        gifContainer.style.zIndex = "1000";
+
+    
+        const gif = document.createElement("img");
+        gif.src = "https://th.bing.com/th/id/OIP.q9Xxj_VFW2ZNci7DsY64MwHaFj?rs=1&pid=ImgDetMain";
+        gif.style.maxWidth = "100%";
+        gif.style.maxHeight = "100%";
+        gif.style.borderRadius = "10px"; 
+
+        
+        gifContainer.appendChild(gif);
+
+        
+        document.body.appendChild(gifContainer);
+
+        
+        setTimeout(() => {
+            document.body.removeChild(gifContainer);
+        }, 5000); 
+    } else {
+        alert("Preencha todos os campos obrigatórios!");
+    }
+}
